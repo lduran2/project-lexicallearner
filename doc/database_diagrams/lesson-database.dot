@@ -1,16 +1,28 @@
 graph LexicalLearner {
+    /* default node shape */
     node [
         shape = "record",
         fontname = "Verdana,DejaVu Sans,Bitstream Vera Sans"
     ];
 
-    teacher [
+    /* entities */
+
+    TEACHER [
         label = "{\N|
             account_id\l
         }";
     ];
 
+    LESSON [
+        label = "{\N|
+            title\lcontent\l
+        }";
+    ];
+
+    /* shared attributes */
+
     teacher_id [shape="ellipse"];
 
-    teacher -- teacher_id [label="⁎"];
+    TEACHER -- teacher_id [label="⁎"];
+    LESSON -- teacher_id;
 }
