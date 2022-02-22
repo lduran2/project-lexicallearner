@@ -1,4 +1,4 @@
-graph LexicalLearner {
+digraph LexicalLearner {
     /* default node shape */
     node [
         shape = "record",
@@ -19,10 +19,21 @@ graph LexicalLearner {
         }";
     ];
 
+    /* relations */
+
+    TEACHES [shape="diamond"];
+
     /* shared attributes */
 
     teacher_id [shape="ellipse"];
 
-    TEACHER -- teacher_id [label="⁎"];
-    LESSON -- teacher_id;
+    lesson_id [shape="ellipse"];
+
+    /* edges */
+    TEACHER -> teacher_id [label="⁎", dir=none];
+    LESSON -> lesson_id [label="⁎", dir=none];
+    LESSON -> teacher_id [splines=curved,dir=none];
+    TEACHES -> TEACHER [splines=ortho, arrowhead="teetee"];
+    TEACHES -> LESSON [splines=ortho, arrowhead="crowodot"];
+    
 }
