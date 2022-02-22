@@ -1,0 +1,16 @@
+graph LexicalLearner {
+    node [
+        shape = "record",
+        fontname = "Verdana,DejaVu Sans,Bitstream Vera Sans"
+    ];
+
+    teacher [
+        label = "{\N|
+            account_id\l
+        }";
+    ];
+
+    teacher_id [shape="ellipse"];
+
+    teacher -- teacher_id [label="⁎"];
+}
