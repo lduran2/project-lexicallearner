@@ -1,29 +1,32 @@
 \documentclass{standalone}
 \usepackage[utf8]{inputenc}
-\renewcommand{\familydefault}{\sfdefault}
+\renewcommand*\familydefault{\sfdefault}%
 
 \usepackage{tikz}
 \usetikzlibrary{shapes.multipart}
+\usetikzlibrary{matrix}
 
-\tikzset{
-    empty-entity/.style={%
+\tikzset{%
+    entity/.style={%
         draw,%
-        rectangle,%
+        rectangle split,%
         rectangle split parts=2,%
         align=left%
     },%
-    entity/.style={%
-        empty-entity,
-        rectangle split
-    }
-}
+    empty-entity/.style={%
+        entity,%
+        rectangle split parts=1%
+    }%
+}%
 
 \begin{document}
 
 \begin{tikzpicture}
-    \node [entity] at (0in,-0in) {
-        TEACHER\nodepart{two}
-        account\_id
+    \matrix[every node/.style={entity}] {
+        \node {
+            TEACHER\nodepart{two}
+            account\_id
+        }; \\
     };
 \end{tikzpicture}
 
