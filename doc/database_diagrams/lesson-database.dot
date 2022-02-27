@@ -35,5 +35,6 @@ digraph LexicalLearner {
     LESSON -> teacher_id [splines=curved,dir=none];
     TEACHES -> TEACHER [splines=ortho, arrowhead="teetee"];
     TEACHES -> LESSON [splines=ortho, arrowhead="crowodot"];
-    
+
+    {rank = same; TEACHER; TEACHES; LESSON;}
 }
