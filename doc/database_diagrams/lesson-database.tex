@@ -1,0 +1,30 @@
+\documentclass{standalone}
+\usepackage[utf8]{inputenc}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.multipart}
+
+\tikzset{
+    empty-entity/.style={%
+        draw,%
+        rectangle,%
+        rectangle split parts=2,%
+        align=left%
+    },%
+    entity/.style={%
+        empty-entity,
+        rectangle split
+    }
+}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \node [entity] at (0in,-0in) {
+        TEACHER\nodepart{two}
+        account\_id
+    };
+\end{tikzpicture}
+
+\end{document}
