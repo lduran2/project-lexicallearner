@@ -1,6 +1,6 @@
 .PHONY: all
 
-all: lesson-database.png
+all: chens-notation.png
 
-lesson-database.png: lesson-database.dot
+chens-notation.png: chens-notation.gvdot
 	dot -Tpng $^ -o$@

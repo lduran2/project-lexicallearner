@@ -1,40 +1,29 @@
-digraph LexicalLearner {
+graph LexicalLearnerChensNotation {
     /* default node shape */
     node [
-        shape = "record",
+        shape = "rectangle",
         fontname = "Verdana,DejaVu Sans,Bitstream Vera Sans"
     ];
 
     /* entities */
 
-    TEACHER [
-        label = "{\N|
-            account_id\l
-        }";
-    ];
-
-    LESSON [
-        label = "{\N|
-            title\lcontent\l
-        }";
-    ];
+    ACCOUNT;
+    PROFILE;
+    LESSON;
+    QUESTION;
+    ITEM;
 
     /* relations */
 
-    TEACHES [shape="diamond"];
+    ANSWERS [shape="diamond"];
 
-    /* shared attributes */
-
-    teacher_id [shape="ellipse"];
-
-    lesson_id [shape="ellipse"];
+    /* attributes */
 
     /* edges */
-    TEACHER -> teacher_id [label="⁎", dir=none];
-    LESSON -> lesson_id [label="⁎", dir=none];
-    LESSON -> teacher_id [splines=curved,dir=none];
-    TEACHES -> TEACHER [splines=ortho, arrowhead="teetee"];
-    TEACHES -> LESSON [splines=ortho, arrowhead="crowodot"];
 
-    {rank = same; TEACHER; TEACHES; LESSON;}
+    ACCOUNT -- PROFILE;
+    PROFILE -- LESSON;
+    LESSON -- QUESTION;
+    QUESTION -- ANSWERS, ITEM;
+    ANSWERS -- ITEM;
 }
