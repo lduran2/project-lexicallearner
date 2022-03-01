@@ -20,10 +20,10 @@ graph LexicalLearnerChensNotation {
     /* attributes */
 
     subgraph accountEntity { ACCOUNT -- acid, password };
-    subgraph profileEntity { PROFILE -- pfid, acid, pfLevel, score };
-    subgraph lessonEntity { LESSON -- lsid, pfid, lsLevel };
-    subgraph questionEntity { QUESTION -- qsid, lsid, qsItid };
-    subgraph answersRelation { ANSWERS -- anid, qsid, anItid, isCorrect };
+    subgraph profileEntity { PROFILE -- pfid, acid2, pfLevel, score };
+    subgraph lessonEntity { LESSON -- lsid, pfid2, lsLevel };
+    subgraph questionEntity { QUESTION -- qsid, lsid2, qsItid };
+    subgraph answersRelation { ANSWERS -- anid, qsid2, anItid, isCorrect };
     subgraph itemEntity { ITEM -- itid, itName, itSource };
 
     /* edges */
